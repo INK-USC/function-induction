@@ -52,7 +52,7 @@ def sample_data(n_shot, n_examples, seed, offset, maxlen):
 def main():
 
     setting_name = "normal"
-    for maxlen in [1]:
+    for maxlen in [1, 4]:
         for offset in range(-12, 14, 1): # offset goes from -12 to 13
             datapoints = sample_data(n_shot=32, n_examples=100, seed=42, offset=offset, maxlen=maxlen)
             filename = "cipher_maxlen{}_offset{}.jsonl".format(maxlen, offset)

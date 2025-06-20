@@ -15,7 +15,6 @@ def generate_one_example(cmin, cmax, nmin, nmax, base, ndigit):
     """generate one addition example (a+b=c), where a,b \in [nmin, nmax] and c \in [cmin, cmax]. 
     rejection sampling is used."""
     a, b = -1e10, -1e10
-    # or (int(to_base(a, base)) + int(to_base(b, base)) == int(to_base(a+b, base)))
     while (a+b > cmax) or (a+b < cmin) \
         or len(to_base(a, base)) != ndigit or len(to_base(b, base)) != ndigit or len(to_base(a+b, base)) != ndigit:
         a = random.randint(nmin, nmax)
@@ -29,6 +28,7 @@ def sample_data(n_shot, n_examples, setting_name, base, cmin, cmax, ndigit):
         # normal: no intervention
         # setting 1: base-k and base-10 addition results are the same
         # setting 2: base-k and base-10 addition results are different (e.g., involves +2 and carry over in base-8)
+        # setting 3: base-k and base-10 addition results are different (e.g., involves +2 and no carry over in base-8)
         if setting_name == "normal":
             test_a, test_b = generate_one_example(cmin=cmin, cmax=cmax, nmin=cmin, nmax=cmax, base=base, ndigit=ndigit)
         elif setting_name == "setting1":
@@ -77,9 +77,7 @@ def main():
 
     for setting_name in ["normal", "setting1", "setting2", "setting3"]:
         for ndigit in [2, 3]:
-            for base in range(6, 10, 1): # offset goes from -10 to 10
-
-                # if setting_name != "normal" and base < 8: continue
+            for base in range(6, 10, 1):
 
                 random.seed(seed)
 
@@ -88,7 +86,7 @@ def main():
 
                 datapoints = sample_data(n_shot=32, n_examples=100, setting_name=setting_name, base=base, 
                                         cmin=cmin, cmax=cmax, ndigit=ndigit)
-                # print(datapoints[:4])
+
                 filename = "addition_ndigits{}_base{}.jsonl".format(ndigit, base)
                 save_jsonl(datapoints, setting_name, filename)
                 print("{}:{}:{} finished.".format(setting_name, ndigit, base))
