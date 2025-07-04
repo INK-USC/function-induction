@@ -13,17 +13,19 @@ pip install git+https://github.com/callummcdougall/CircuitsVis.git#subdirectory=
 pip install matplotlib plotly
 pip install --upgrade nbformat
 
-# to access data_utils.py and patching_utils.py in subfolders
+# to access data_utils.py and patching_utils.py in subdirectories
 export PYTHONPATH="$PWD:$PYTHONPATH"
 ```
 
 ### Key Findings
 
 #### 1. Language models can learn off-by-one addition in context.
-We evaluated six recent language models and they all have non-trivial to near-perfect performance on the task of off-by-one addition.
+* We evaluated six recent language models and they all have non-trivial to near-perfect performance on the task of off-by-one addition.
+* See `1_off_by_one_addition_eval/eval.py` for our code to evaluate models on off-by-one addition. `results_aggregated.csv` contains all evaluation results.
 
 #### 2. We identified a function induction mechanism responsible for this.
-We use mechanistic interpretability technique to understand how model manages to do this. We identified three groups of attention heads, connected in a way similar to the induction head mechanism.
+* We use mechanistic interpretability technique to understand how model manages to do this. We identified three groups of attention heads, connected in a way similar to the induction head mechanism.
+* See `2_circuit_discovery/gemma_2_9b.ipynb` for a demo of circuit discovery and result visualization.
 
 #### 3. Function induction heads work in parallel and each emits a fraction of the +1 function.
 
