@@ -28,7 +28,7 @@ export PYTHONPATH="$PWD:$PYTHONPATH"
 * See `2_circuit_discovery/gemma_2_9b.ipynb` for a demo of circuit discovery and result visualization.
 
 #### 3. Function induction heads work in parallel and each emits a fraction of the +1 function.
-
+* See `3_circuit_eval_and_analysis/function_vector.ipynb` for a demo of function vector style analysis.
 
 #### 4. Function induction enables broader task generalization.
 
