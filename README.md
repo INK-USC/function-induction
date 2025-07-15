@@ -1,9 +1,8 @@
 ## Function Induction and Task Generalization
-
-Code for paper "Function Induction and Task Generalization: An Interpretability Study with Off-by-One Addition".
+Code for paper "Function Induction and Task Generalization: An Interpretability Study with Off-by-One Addition". [[Paper]](https://arxiv.org/abs/2507.09875)
 
 <p align="center">
-    <img src="./6_assets/fi_illustration.png" width="300">
+    <img src="./6_assets/fi_illustration.png" width="350">
     <br>
 </p>
 
@@ -25,9 +24,9 @@ export PYTHONPATH="$PWD:$PYTHONPATH"
 
 ### Paper Summary
 
-"Off-by-one addition" is the task of adding an additional one to the sum of two numbers, e.g., completing the sequence "1+1=3, 2+2=5, 3+3=" with "7".
+"Off-by-one addition" is the counterfactual task of adding an additional one to the sum of two numbers, e.g., completing the sequence "1+1=3, 2+2=5, 3+3=" with "7".
 
-#### 1. Language models can learn off-by-one addition in context.
+#### 1. Language models can learn off-by-one addition with in-context learning.
 
 <p align="center">
     <img src="./6_assets/off_by_one_performance.png" width="250">
@@ -61,7 +60,7 @@ export PYTHONPATH="$PWD:$PYTHONPATH"
 #### 4. Function induction heads enable broader task generalization.
 
 <p align="center">
-    <img src="./6_assets/task_generalization.png" width="550">
+    <img src="./6_assets/task_generalization.png" width="700">
     <br>
 </p>
 
